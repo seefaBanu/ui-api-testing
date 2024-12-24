@@ -1,12 +1,9 @@
 package stepdefinitions;
 
 import base.TestBase;
-import io.cucumber.java.en.And;
 import io.restassured.response.Response;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -16,13 +13,11 @@ public class CreateBookApiStepDefinitions extends TestBase {
 
     @When("user sends a POST request to {string} with the following data:")
     public void user_sends_post_request_with_data(String endpoint,Map<String, String> data) {
-//        String data = String.format("{ \"title\": \"%s\", \"author\": \"%s\" }", title, author);
         response = userRequest.body(data).post(endpoint);
     }
 
     @When("user sends a POST request to {string} with invalid data:")
     public void user_sends_post_request_with_invalid_data(String endpoint, Map<String, String> data ) {
-//        String data = String.format("{ \"title\": \"%s\", \"author\": \"%s\" }", title, author);
         response = userRequest.body(data).post(endpoint);
     }
 
@@ -40,6 +35,5 @@ public class CreateBookApiStepDefinitions extends TestBase {
     public void response_should_contain_book_title_details() {
         Assert.assertTrue(response.getBody().asString().contains("title"), "Book details are missing in response");
     }
-
 
 }
