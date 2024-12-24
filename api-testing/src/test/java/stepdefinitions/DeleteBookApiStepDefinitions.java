@@ -12,11 +12,11 @@ import org.testng.Assert;
 public class DeleteBookApiStepDefinitions extends TestBase {
     private Response response;
 
-    @Given("admin is authenticated")
-    public void admin_is_authenticated() {
-        // Use adminRequest as authenticated request
-        RequestSpecification adminRequest1 = TestBase.adminRequest;
-    }
+//    @Given("admin is authenticated")
+//    public void admin_is_authenticated() {
+//        // Use adminRequest as authenticated request
+//        RequestSpecification adminRequest1 = TestBase.adminRequest;
+//    }
 
     @When("admin sends a DELETE request to {string} with ID {int}")
     public void admin_sends_delete_request_with_id(String endpoint, int id) {
@@ -29,7 +29,7 @@ public class DeleteBookApiStepDefinitions extends TestBase {
         Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unexpected status code!");
     }
 
-    @Then("the response should indicate book deletion with message {string}")
+    @And("the response should indicate book deletion with message {string}")
     public void response_should_indicate_book_deletion_with_message(String message) {
         Assert.assertTrue(response.getBody().asString().contains(message), "Expected message not found in response!");
     }
@@ -40,13 +40,16 @@ public class DeleteBookApiStepDefinitions extends TestBase {
     }
 
     @When("user sends a DELETE request to {string} with ID {int}")
-    public void user_sends_delete_request_with_id(String endpoint, int id) {
+    public void user_sends_a_delete_request_to_with_id(String endpoint, int id) {
         String fullEndpoint = endpoint.replace("{id}", String.valueOf(id));
         response = TestBase.userRequest.delete(fullEndpoint);
     }
+
 
     @Then("the response status code for unauthorized access should be {int}")
     public void response_status_code_for_unauthorized_access_should_be(int expectedStatusCode) {
         Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unauthorized user is able to delete!");
     }
+
+
 }
