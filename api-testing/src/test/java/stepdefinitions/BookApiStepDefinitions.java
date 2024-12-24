@@ -26,39 +26,34 @@ public class BookApiStepDefinitions extends TestBase {
         RequestSpecification userRequest1 = TestBase.userRequest;// Auth is already configured
     }
 
-    @When("admin sends a GET request to {string}")
-    public void admin_sends_get_request(String endpoint) {
-        response = adminRequest.get(endpoint);
-    }
-
-    @When("user sends a GET request to {string}")
-    public void user_sends_get_request(String endpoint) {
-        response = userRequest.get(endpoint);
-    }
-
-    @When("user sends a POST request to {string} with the following data:")
-    public void user_sends_post_request_with_data(String endpoint,String author, String title) {
-        String data = String.format("{ \"title\": \"%s\", \"author\": \"%s\" }", title, author);
-        response = userRequest.body(data).post(endpoint);
-    }
-
-    @Then("the response status code should be {int}")
-    public void response_status_code_should_be(int expectedStatusCode) {
-        Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unexpected status code!");
-    }
-
-    @Then("the response should contain a list of books")
-    public void response_should_contain_list_of_books() {
-        Assert.assertTrue(response.getBody().asString().contains("title"), "Book list is missing in response");
-    }
-
-    @Then("the response should contain book details")
-    public void response_should_contain_book_details() {
-        Assert.assertTrue(response.getBody().asString().contains("author"), "Book details are missing in response");
-    }
-
-    @And("the response should contain a {string}")
-    public void response_message_should_indicate(String message) {
-        Assert.assertTrue(response.getBody().asString().contains(message), "Unexpected response message");
-    }
+//    @When("admin sends a GET request to {string}")
+//    public void admin_sends_get_request(String endpoint) {
+//        response = adminRequest.get(endpoint);
+//    }
+//
+//    @When("user sends a GET request to {string}")
+//    public void user_sends_get_request(String endpoint) {
+//        response = userRequest.get(endpoint);
+//    }
+//
+//
+//    @Then("the response status code should be {int}")
+//    public void response_status_code_should_be(int expectedStatusCode) {
+//        Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unexpected status code!");
+//    }
+//
+//    @Then("the response should contain a list of books")
+//    public void response_should_contain_list_of_books() {
+//        Assert.assertTrue(response.getBody().asString().contains("title"), "Book list is missing in response");
+//    }
+//
+//    @Then("the response should contain book details")
+//    public void response_should_contain_book_details() {
+//        Assert.assertTrue(response.getBody().asString().contains("author"), "Book details are missing in response");
+//    }
+//
+//    @And("the response should contain a {string}")
+//    public void response_message_should_indicate(String message) {
+//        Assert.assertTrue(response.getBody().asString().contains("author"), "Unexpected response message");
+//    }
 }

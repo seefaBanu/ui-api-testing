@@ -8,14 +8,4 @@ import io.restassured.specification.RequestSpecification;
 public class GetBookByIdApiStepDefinitions extends TestBase {
     private Response response;
 
-    @Given("admin is authenticated")
-    public void admin_is_authenticated() {
-        RequestSpecification adminRequest1 = TestBase.adminRequest;// Auth is already configured
-    }
-
-    @Given("user is authenticated")
-    public void user_is_authenticated() {
-        RequestSpecification userRequest1 = TestBase.userRequest;// Auth is already configured
-    }
-
 }
