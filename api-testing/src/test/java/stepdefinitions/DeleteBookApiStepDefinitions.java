@@ -12,12 +12,6 @@ import org.testng.Assert;
 public class DeleteBookApiStepDefinitions extends TestBase {
     private Response response;
 
-//    @Given("admin is authenticated")
-//    public void admin_is_authenticated() {
-//        // Use adminRequest as authenticated request
-//        RequestSpecification adminRequest1 = TestBase.adminRequest;
-//    }
-
     @When("admin sends a DELETE request to {string} with ID {int}")
     public void admin_sends_delete_request_with_id(String endpoint, int id) {
         String fullEndpoint = endpoint.replace("{id}", String.valueOf(id));
@@ -43,6 +37,12 @@ public class DeleteBookApiStepDefinitions extends TestBase {
     public void user_sends_a_delete_request_to_with_id(String endpoint, int id) {
         String fullEndpoint = endpoint.replace("{id}", String.valueOf(id));
         response = TestBase.userRequest.delete(fullEndpoint);
+    }
+
+    @When("admin sends a DELETE request to {string} with ID {string}")
+    public void admin_sends_a_delete_request_to_with_id(String endpoint, String id) {
+        String fullEndpoint = endpoint.replace("{id}", id);
+        response = TestBase.adminRequest.delete(fullEndpoint);
     }
 
 
