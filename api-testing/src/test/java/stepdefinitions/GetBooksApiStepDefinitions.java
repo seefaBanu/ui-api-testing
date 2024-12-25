@@ -2,50 +2,57 @@ package stepdefinitions;
 
 import base.TestBase;
 import io.cucumber.java.en.And;
-import io.restassured.response.Response;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.restassured.response.Response;
 import org.testng.Assert;
 
 public class GetBooksApiStepDefinitions extends TestBase {
     private Response response;
 
+//    @Given("admin is authenticated")
+//    public void admin_is_authenticated() {
+//        // Use adminRequest as the authenticated admin request
+//    }
+
+//    @Given("user is authenticated")
+//    public void user_is_authenticated() {
+//        // Use userRequest as the authenticated regular user request
+//    }
+
     @When("admin sends a GET request to {string}")
-    public void admin_sends_get_request(String endpoint) {
-        response = adminRequest.get(endpoint);
+    public void admin_sends_get_request_to(String endpoint) {
+        response = TestBase.adminRequest.get(endpoint);
     }
 
     @When("user sends a GET request to {string}")
-    public void user_sends_get_request(String endpoint) {
-        response = userRequest.get(endpoint);
+    public void user_sends_get_request_to(String endpoint) {
+        response = TestBase.userRequest.get(endpoint);
     }
 
-    @Then("the response status code should be {int}")
-    public void response_status_code_should_be(int expectedStatusCode) {
+    @Then("the GET response status code should be {int}")
+    public void the_get_response_status_code_should_be(int expectedStatusCode) {
         Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unexpected status code!");
     }
 
-    @Then("the response should contain a list of books")
-    public void response_should_contain_list_of_books() {
-        Assert.assertTrue(response.getBody().asString().contains("title"), "Book list is missing in response");
+    @And("the response should contain a list of books")
+    public void the_response_should_contain_a_list_of_books() {
+        Assert.assertTrue(response.getBody().asString().contains("title"), "Book list is missing in the response!");
     }
 
-    @Then("the response should contain book details")
-    public void response_should_contain_book_details() {
-        Assert.assertTrue(response.getBody().asString().contains("author"), "Book details are missing in response");
+    @And("the response should indicate no books available")
+    public void the_response_should_indicate_no_books_available() {
+        Assert.assertTrue(response.getBody().asString().contains("No books available"), "Expected 'No books available' message is missing!");
     }
 
-    @Then("the response should indicate no books exist")
-    public void the_response_should_indicate_no_books_exist() {
-        String responseBody = response.getBody().asString();
-        // Adjust this based on the actual response
-        Assert.assertTrue(responseBody.contains("[]"), "Expected message indicating no books exist was not found!");
+    @When("admin sends a GET request to {string} with invalid query parameters")
+    public void admin_sends_get_request_with_invalid_query_parameters(String endpoint) {
+        response = TestBase.adminRequest.get(endpoint);
     }
 
-    @And("the response should contain an error message")
-    public void the_response_should_contain_an_error_message() {
-        String responseBody = response.getBody().asString();
-        Assert.assertTrue(responseBody.contains("Invalid query parameter"), "Expected error message not found!");
+    @And("the response should indicate an invalid query parameter error")
+    public void the_response_should_indicate_invalid_query_parameter_error() {
+        Assert.assertTrue(response.getBody().asString().contains("Invalid query parameter"), "Expected error message for invalid query parameter is missing!");
     }
 }
