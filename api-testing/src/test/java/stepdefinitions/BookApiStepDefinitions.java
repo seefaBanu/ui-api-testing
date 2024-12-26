@@ -26,6 +26,10 @@ public class BookApiStepDefinitions extends TestBase {
         RequestSpecification userRequest1 = TestBase.userRequest;// Auth is already configured
     }
 
+    @Given("user is not authenticated")
+    public void user_is_not_authenticated() {
+        RequestSpecification userRequest1 = TestBase.unAuthenticatedRequest;// Auth is already configured
+    }
 //    @When("admin sends a GET request to {string}")
 //    public void admin_sends_get_request(String endpoint) {
 //        response = adminRequest.get(endpoint);
