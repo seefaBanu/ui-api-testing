@@ -1,5 +1,6 @@
 package base;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 
@@ -13,6 +14,7 @@ public class TestBase {
         // Admin user
         adminRequest = RestAssured
                 .given()
+                .filter(new AllureRestAssured())
                 .auth()
                 .preemptive()
                 .basic("admin", "password")
@@ -21,6 +23,7 @@ public class TestBase {
         // Regular user
         userRequest = RestAssured
                 .given()
+                .filter(new AllureRestAssured())
                 .auth()
                 .preemptive()
                 .basic("user", "password")
