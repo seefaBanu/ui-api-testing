@@ -36,7 +36,6 @@ jobs:
       - name: Build and run API tests
         working-directory: ./api-tests
         run: mvn test
-        continue-on-error: true
 
       - name: Set environment properties
         if: always()
@@ -52,7 +51,6 @@ jobs:
       - name: Load test report history
         uses: actions/checkout@v3
         if: always()
-        continue-on-error: true
         with:
           ref: gh-pages
           path: gh-pages
