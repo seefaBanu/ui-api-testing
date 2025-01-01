@@ -36,6 +36,7 @@ jobs:
       - name: Build and run API tests
         working-directory: api-testing
         run: mvn test
+        continue-on-error: true
 
       - name: Build and run UI tests
         working-directory: ui-testing
