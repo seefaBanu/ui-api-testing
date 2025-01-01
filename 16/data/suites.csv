@@ -1,0 +1,7 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Jan 01 16:31:23 GMT 2025","Wed Jan 01 16:31:24 GMT 2025","927","","remove product from cart","","Remove a product from the cart","","Remove a product from the cart","  As a user
+  I want to remove products from the cart
+  So that I can update my selection"
+"passed","Wed Jan 01 16:31:02 GMT 2025","Wed Jan 01 16:31:23 GMT 2025","20496","","Add product to cart","","Add a single product to the cart","","Add a single product to the cart","  As a user
+  I want to add products to the cart 
+  So that I can purchase them later"
