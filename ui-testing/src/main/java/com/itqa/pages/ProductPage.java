@@ -13,6 +13,8 @@ public class ProductPage {
     // Locators
     private By addToCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
     private By successMessage = By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div");
+    private By addWishList = By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[5]/div/a[1]");
+
 
     // Method to select size
     public void selectSize(String size) {
@@ -29,6 +31,11 @@ public class ProductPage {
     // Method to click Add to Cart
     public void addToCart() {
         driver.findElement(addToCartButton).click();
+    }
+
+    // Method to click Add to wish list
+    public void clickAddToWishListLink() {
+        driver.findElement(addWishList).click();
     }
 
     //Method to get the success message

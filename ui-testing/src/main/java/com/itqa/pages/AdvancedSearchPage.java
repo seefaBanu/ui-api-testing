@@ -59,4 +59,4 @@ public class AdvancedSearchPage {
         driver.findElement(advancedSearch).click();
     }
 
-}
+} 
