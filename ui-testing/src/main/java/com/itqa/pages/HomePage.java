@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class HomePage {
     WebDriver driver;
 
+    //locator
     private By searchBar = By.id("search");
     private By searchButton = By.xpath("//button[@type='submit']");
     private By firstProduct = By.cssSelector(".products-grid .product-item:first-of-type");
