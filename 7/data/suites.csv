@@ -1,0 +1,23 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jan 02 15:43:10 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","1804","","Create Book API Testing","","User creates a book with valid data","","User creates a book with valid data",""
+"broken","Thu Jan 02 15:43:39 GMT 2025","Thu Jan 02 15:43:54 GMT 2025","14448","","remove product from cart","","Remove a product from the cart","","Remove a product from the cart","  As a user
+  I want to remove products from the cart
+  So that I can update my selection"
+"passed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","33","","Create Book API Testing","","Un Authenticated Request to create book","","Un Authenticated Request to create book",""
+"passed","Thu Jan 02 15:43:13 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","96","","Update Book API Testing","","Admin updates the book with non-existing id","","Admin updates the book with non-existing id",""
+"failed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","96","","Create Book API Testing","","User creates a book without author","","User creates a book without author",""
+"failed","Thu Jan 02 15:43:13 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","104","","Delete Book API Testing","","User tries to delete a book","","User tries to delete a book",""
+"failed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","106","","Delete Book API Testing","","Admin deletes a book with a valid ID","","Admin deletes a book with a valid ID",""
+"passed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","99","","Create Book API Testing","","Admin creates a book without author","","Admin creates a book without author",""
+"skipped","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","3","","Create Book API Testing","","User creates a book with additional parameter","","User creates a book with additional parameter",""
+"passed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","87","","Delete Book API Testing","","Admin deletes a book with an incorrect ID","","Admin deletes a book with an incorrect ID",""
+"passed","Thu Jan 02 15:43:13 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","92","","Update Book API Testing","","User updates the details of a book","","User updates the details of a book",""
+"failed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","88","","Delete Book API Testing","","Admin deletes a book with an invalid ID","","Admin deletes a book with an invalid ID",""
+"passed","Thu Jan 02 15:43:25 GMT 2025","Thu Jan 02 15:43:39 GMT 2025","14158","","Add product to cart","","Add a single product to the cart","","Add a single product to the cart","  As a user
+  I want to add products to the cart 
+  So that I can purchase them later"
+"failed","Thu Jan 02 15:43:13 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","90","","Update Book API Testing","","Admin updates the details of a book","","Admin updates the details of a book",""
+"skipped","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","4","","Create Book API Testing","","User creates a book with a duplicate title","","User creates a book with a duplicate title",""
+"skipped","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","4","","Create Book API Testing","","User creates a book with an empty author and title","","User creates a book with an empty author and title",""
+"failed","Thu Jan 02 15:43:13 GMT 2025","Thu Jan 02 15:43:13 GMT 2025","94","","Update Book API Testing","","Admin updates the book with missing mandatory fields","","Admin updates the book with missing mandatory fields",""
+"failed","Thu Jan 02 15:43:12 GMT 2025","Thu Jan 02 15:43:12 GMT 2025","107","","Create Book API Testing","","User creates a book without title","","User creates a book without title",""
