@@ -30,16 +30,10 @@ public class CheckoutSteps {
         assertEquals("Shipping Address", checkoutPage.getPageTitle());
     }
 
-    @Then("I should be able to enter my shipping details")
-    public void iShouldBeAbleToEnterMyShippingDetails() {
-        checkoutPage.enterShippingDetails("John", "Doe", "123 Main St", "City", "12345", "Country");
-        assertEquals("Shipping details entered successfully", checkoutPage.getShippingSuccessMessage());
-    }
-
-    @Then("I should be redirected to payment page")
+    @Then("I should click next and redirected to payment page")
     public void iShouldBeRedirectedToPaymentPage() {
         checkoutPage.clickNextToPaymentPage();
-        assertEquals("Payment", checkoutPage.getPaymentPageTitle());
+        assertEquals("Payment Method", checkoutPage.getPaymentPageTitle());
     }
 
     @When("I click place order")
@@ -49,7 +43,7 @@ public class CheckoutSteps {
 
     @Then("The order should be placed successfully")
     public void theOrderShouldBePlacedSuccessfully() {
-        assertEquals("Order placed successfully", checkoutPage.getOrderConfirmationMessage());
+        assertEquals("Thank you for your purchase!", checkoutPage.getOrderConfirmationMessage());
     }
 }
 

@@ -11,16 +11,6 @@ import org.testng.Assert;
 public class GetBooksApiStepDefinitions extends TestBase {
     private Response response;
 
-//    @Given("admin is authenticated")
-//    public void admin_is_authenticated() {
-//        // Use adminRequest as the authenticated admin request
-//    }
-
-//    @Given("user is authenticated")
-//    public void user_is_authenticated() {
-//        // Use userRequest as the authenticated regular user request
-//    }
-
     @When("admin sends a GET request to {string}")
     public void admin_sends_get_request_to(String endpoint) {
         response = TestBase.adminRequest.get(endpoint);
@@ -31,7 +21,7 @@ public class GetBooksApiStepDefinitions extends TestBase {
         response = TestBase.userRequest.get(endpoint);
     }
 
-    @Then("the GET response status code should be {int}")
+    @Then("The response status code for GET Books API should be {int}")
     public void the_get_response_status_code_should_be(int expectedStatusCode) {
         Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Unexpected status code!");
     }
@@ -55,4 +45,6 @@ public class GetBooksApiStepDefinitions extends TestBase {
     public void the_response_should_indicate_invalid_query_parameter_error() {
         Assert.assertTrue(response.getBody().asString().contains("Invalid query parameter"), "Expected error message for invalid query parameter is missing!");
     }
+
+
 }
