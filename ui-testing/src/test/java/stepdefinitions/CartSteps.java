@@ -9,10 +9,17 @@ import io.cucumber.java.en.*;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class CartSteps {
-    HomePage homePage = new HomePage(DriverFactory.getDriver());
-    ProductPage productPage = new ProductPage(DriverFactory.getDriver());
-    CartPage cartPage = new CartPage(DriverFactory.getDriver());
+public class CartSteps extends BaseSteps {
+    HomePage homePage;
+    ProductPage productPage;
+    CartPage cartPage;
+
+    public CartSteps() {
+        super();
+        homePage = new HomePage(driver);
+        productPage = new ProductPage(driver);
+        cartPage = new CartPage(driver);
+    }
 
     @Given("I am on the homepage")
     public void iAmOnTheHomepage() {

@@ -4,7 +4,9 @@ Feature: Add product to cart
   So that I can purchase them later
 
   Scenario: Add a single product to the cart
-    Given I am on the homepage
+#    Given I logged in as a user
+    Given User is on the login page
+    And User logs in with username and password
     When I search for "T-Shirt"
     And I select the first product
     And I select size "M" and color "Blue"

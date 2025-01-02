@@ -12,10 +12,11 @@ public class DriverFactory {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--start-maximized"); // Maximizes browser on startup
-
+            // Enable headless mode conditionally
+            if (System.getProperty("headless", "false").equalsIgnoreCase("true")) {
+                options.addArguments("--headless", "--disable-gpu");
+            }
             driver = new ChromeDriver(options);
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
         }
