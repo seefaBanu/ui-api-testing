@@ -2,10 +2,12 @@ package com.itqa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+
 public class CartPage {
     WebDriver driver;
 
@@ -14,9 +16,12 @@ public class CartPage {
     private By okButton = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]");
     private By cartItemCount = By.cssSelector(".minicart-wrapper .counter-number");
     private By viewAndEditCart = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[5]/div/a");
-
     private By editItem = By.xpath("//*[@id=\"mini-cart\"]/li/div/div/div[3]/div[1]/a");
 
+    private By proceedToCheckoutButton = By.cssSelector("#top-cart-btn-checkout");
+
+    public void clickProceedToCheckout() {
+        driver.findElement(proceedToCheckoutButton).click();
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -28,6 +33,7 @@ public class CartPage {
     }
 
     public void goToCartPage() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         driver.findElement(cartLink).click();
     }
 

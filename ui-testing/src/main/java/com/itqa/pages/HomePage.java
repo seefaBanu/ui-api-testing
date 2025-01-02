@@ -23,6 +23,9 @@ public class HomePage {
 
     private By signInLink = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a");
 
+    private static By clickToggle = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button");
+
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -44,6 +47,10 @@ public class HomePage {
 
     public void clickSignIn() {
         driver.findElement(signInLink).click();
+    }
+
+    public void clickTheToggle() {
+        driver.findElement(clickToggle).click();
     }
 
 }
