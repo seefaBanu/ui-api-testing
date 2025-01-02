@@ -73,7 +73,6 @@ public class CartSteps extends BaseSteps {
 
     @Given("I have a product in the cart")
     public void iHaveAProductInTheCart() {
-        iAmOnTheHomepage();
         iSearchFor("T-Shirt");
         iSelectTheFirstProduct();
         iSelectSizeAndColor("M","Blue");

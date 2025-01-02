@@ -38,7 +38,7 @@ public class CartPage {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement productElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" /html/body/div[2]/header/div[2]/div[1]/a/span[2]\n")));
-        new WebDriverWait(driver, Duration.ofSeconds(10))
+        new WebDriverWait(driver, Duration.ofSeconds(20))
                 .until(ExpectedConditions.elementToBeClickable(cartLink))
                 .click();
     }
