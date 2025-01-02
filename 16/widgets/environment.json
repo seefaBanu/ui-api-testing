@@ -1,1 +1,1 @@
-[{"values":["https://seefaBanu.github.io/ui-api-testing"],"name":"URL"}]
+[{"values":["pull_request"],"name":"EVENT"},{"values":["https://github.com/seefaBanu/ui-api-testing/pull/9"],"name":"PULL_REQUEST"},{"values":["1"],"name":"ATTEMPT"},{"values":["https://github.com/seefaBanu/ui-api-testing/commits/b90f7c68b4aa8cf12e694c91a2002ea47c3a59e0"],"name":"COMMIT"},{"values":["https://seefaBanu.github.io/ui-api-testing"],"name":"URL"}]

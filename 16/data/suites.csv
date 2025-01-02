@@ -1,7 +1,21 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Wed Jan 01 16:31:23 GMT 2025","Wed Jan 01 16:31:24 GMT 2025","927","","remove product from cart","","Remove a product from the cart","","Remove a product from the cart","  As a user
-  I want to remove products from the cart
-  So that I can update my selection"
-"passed","Wed Jan 01 16:31:02 GMT 2025","Wed Jan 01 16:31:23 GMT 2025","20496","","Add product to cart","","Add a single product to the cart","","Add a single product to the cart","  As a user
-  I want to add products to the cart 
-  So that I can purchase them later"
+"passed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","91","","Get Book Requests","","User GET all books","","User GET all books",""
+"failed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","108","","Delete Book API Testing","","User tries to delete a book","","User tries to delete a book",""
+"passed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","92","","Delete Book API Testing","","Admin deletes a book with an incorrect ID","","Admin deletes a book with an incorrect ID",""
+"failed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","106","","Delete Book API Testing","","Admin deletes a book with a valid ID","","Admin deletes a book with a valid ID",""
+"failed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","93","","Create Book API Testing","","User creates a book without author","","User creates a book without author",""
+"passed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","99","","Create Book API Testing","","Admin creates a book with valid data","","Admin creates a book with valid data",""
+"passed","Thu Jan 02 20:47:18 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","1749","","Create Book API Testing","","User creates a book with valid data","","User creates a book with valid data",""
+"passed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","30","","Create Book API Testing","","Un Authenticated Request to create book","","Un Authenticated Request to create book",""
+"skipped","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","3","","Create Book API Testing","","User creates a book with an empty author and title","","User creates a book with an empty author and title",""
+"skipped","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","3","","Create Book API Testing","","User creates a book with a duplicate title","","User creates a book with a duplicate title",""
+"failed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","92","","Update Book API Testing","","Admin updates the book with missing mandatory fields","","Admin updates the book with missing mandatory fields",""
+"failed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","105","","Create Book API Testing","","User creates a book without title","","User creates a book without title",""
+"skipped","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","2","","Create Book API Testing","","User creates a book with additional parameter","","User creates a book with additional parameter",""
+"failed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","91","","Update Book API Testing","","Admin updates the details of a book","","Admin updates the details of a book",""
+"failed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","97","","Get Book Requests","","GET books with invalid query parameters","","GET books with invalid query parameters",""
+"passed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","87","","Update Book API Testing","","User updates the details of a book","","User updates the details of a book",""
+"failed","Thu Jan 02 20:47:20 GMT 2025","Thu Jan 02 20:47:20 GMT 2025","88","","Delete Book API Testing","","Admin deletes a book with an invalid ID","","Admin deletes a book with an invalid ID",""
+"passed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","93","","Update Book API Testing","","Admin updates the book with non-existing id","","Admin updates the book with non-existing id",""
+"failed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","88","","Get Book Requests","","GET books when no books exist","","GET books when no books exist",""
+"passed","Thu Jan 02 20:47:21 GMT 2025","Thu Jan 02 20:47:21 GMT 2025","95","","Get Book Requests","","Admin GET all books","","Admin GET all books",""
