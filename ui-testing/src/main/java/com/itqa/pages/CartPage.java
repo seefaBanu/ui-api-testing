@@ -2,7 +2,10 @@ package com.itqa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import java.time.Duration;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CartPage {
@@ -13,13 +16,12 @@ public class CartPage {
     private By okButton = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]");
     private By cartItemCount = By.cssSelector(".minicart-wrapper .counter-number");
     private By viewAndEditCart = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[5]/div/a");
+    private By editItem = By.xpath("//*[@id=\"mini-cart\"]/li/div/div/div[3]/div[1]/a");
 
-     private By proceedToCheckoutButton = By.cssSelector("#top-cart-btn-checkout");
+    private By proceedToCheckoutButton = By.cssSelector("#top-cart-btn-checkout");
 
     public void clickProceedToCheckout() {
         driver.findElement(proceedToCheckoutButton).click();
-    }
-
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -48,6 +50,19 @@ public class CartPage {
     public void goToViewAndEditCartPage(){
         driver.findElement(viewAndEditCart).click();
     }
+    public void editAddedItem(String productName) {
+        // Dynamically locate the product name in the mini cart
+        String productNameXpath = String.format("//*[@id='mini-cart']//li/div/div/strong/a[text()='%s']", productName);
 
+        // Locate the specific product link element
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Wait for up to 10 seconds
+        WebElement productElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(productNameXpath)));
+
+        // Ensure the edit button related to the product is clickable
+        WebElement editButton = wait.until(ExpectedConditions.elementToBeClickable(editItem));
+
+        // Click the edit button
+        editButton.click();
+    }
 
 }
