@@ -7,6 +7,7 @@ import io.restassured.specification.RequestSpecification;
 public class TestBase {
     public static RequestSpecification adminRequest;
     public static RequestSpecification userRequest;
+    public static RequestSpecification unAuthenticatedRequest;
 
     static {
         RestAssured.baseURI = "http://localhost:7081";
@@ -27,6 +28,11 @@ public class TestBase {
                 .auth()
                 .preemptive()
                 .basic("user", "password")
+                .contentType("application/json");
+
+        unAuthenticatedRequest = RestAssured
+                .given()
+                .filter(new AllureRestAssured())
                 .contentType("application/json");
     }
 }

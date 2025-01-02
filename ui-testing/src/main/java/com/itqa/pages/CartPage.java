@@ -33,6 +33,7 @@ public class CartPage {
     }
 
     public void deleteConfirmationPopup(){
+
         driver.findElement(okButton).click();
     }
 
