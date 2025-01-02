@@ -1,3 +1,4 @@
+@RemoveFromCart
 Feature: remove product from cart
   As a user
   I want to remove products from the cart

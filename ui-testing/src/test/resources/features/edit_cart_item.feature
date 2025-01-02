@@ -1,3 +1,4 @@
+@EditCart
 Feature: Edit an item on cart
   As a user
   I want to edit an item that already added to cart

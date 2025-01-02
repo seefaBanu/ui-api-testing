@@ -23,4 +23,4 @@ Feature: Add a new address
       | Post Code        | 12345               |
       | Country          | United States       |
     And I click the save address
-    Then succeeded message should be "You saved the address."
+    Then The success message should be "You saved the address."
