@@ -4,7 +4,8 @@ Feature: Edit an item on cart
 
 
   Scenario: Edit an item on cart
-    Given I am on the homepage
+    Given User is on the login page
+    And User logs in with username and password
     When I go to the cart page
     And I click edit icon of the added item "Radiant Tee"
     And I edit size "L" and color "Orange"
