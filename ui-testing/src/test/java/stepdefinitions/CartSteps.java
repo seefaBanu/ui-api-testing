@@ -36,6 +36,11 @@ public class CartSteps extends BaseSteps {
         homePage.selectFirstProduct();
     }
 
+    @When("I select the Second product")
+    public void iSelectTheSecondProduct() {
+        homePage.selectSecondProduct();
+    }
+
 
     @When("I select size {string} and color {string}")
     public void iSelectSizeAndColor(String size, String color) {
