@@ -3,6 +3,7 @@ package stepdefinitions;
 import com.itqa.pages.CartPage;
 import com.itqa.pages.HomePage;
 import com.itqa.pages.ProductPage;
+import com.itqa.pages.MyWishListPage;
 import com.itqa.utils.DriverFactory;
 import io.cucumber.java.en.*;
 
@@ -34,6 +35,12 @@ public class CartSteps extends BaseSteps {
     public void iSelectTheFirstProduct() {
         homePage.selectFirstProduct();
     }
+
+    @When("I select the Second product")
+    public void iSelectTheSecondProduct() {
+        homePage.selectSecondProduct();
+    }
+
 
     @When("I select size {string} and color {string}")
     public void iSelectSizeAndColor(String size, String color) {
