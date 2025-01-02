@@ -1,0 +1,28 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","102","","Create Book API Testing","","Admin creates a book without author","","Admin creates a book without author",""
+"skipped","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","4","","Create Book API Testing","","User creates a book with a duplicate title","","User creates a book with a duplicate title",""
+"failed","Thu Jan 02 17:26:41 GMT 2025","Thu Jan 02 17:26:41 GMT 2025","93","","Update Book API Testing","","Admin updates the details of a book","","Admin updates the details of a book",""
+"passed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","29","","Create Book API Testing","","Un Authenticated Request to create book","","Un Authenticated Request to create book",""
+"passed","Thu Jan 02 17:26:41 GMT 2025","Thu Jan 02 17:26:41 GMT 2025","90","","Update Book API Testing","","User updates the details of a book","","User updates the details of a book",""
+"failed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","111","","Delete Book API Testing","","Admin deletes a book with a valid ID","","Admin deletes a book with a valid ID",""
+"broken","Thu Jan 02 17:27:38 GMT 2025","Thu Jan 02 17:31:24 GMT 2025","225764","","remove product from cart","","Remove a product from the cart","","Remove a product from the cart","  As a user
+  I want to remove products from the cart
+  So that I can update my selection"
+"failed","Thu Jan 02 17:26:41 GMT 2025","Thu Jan 02 17:26:41 GMT 2025","95","","Update Book API Testing","","Admin updates the book with missing mandatory fields","","Admin updates the book with missing mandatory fields",""
+"passed","Thu Jan 02 17:27:33 GMT 2025","Thu Jan 02 17:27:38 GMT 2025","5447","","register new user","","Create a new account to register","","Create a new account to register","  As a user
+  I want to register
+  So that I can login"
+"skipped","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","4","","Create Book API Testing","","User creates a book with additional parameter","","User creates a book with additional parameter",""
+"passed","Thu Jan 02 17:26:54 GMT 2025","Thu Jan 02 17:27:20 GMT 2025","26940","","Add product to cart","","Add a single product to the cart","","Add a single product to the cart","  As a user
+  I want to add products to the cart 
+  So that I can purchase them later"
+"passed","Thu Jan 02 17:26:41 GMT 2025","Thu Jan 02 17:26:41 GMT 2025","98","","Update Book API Testing","","Admin updates the book with non-existing id","","Admin updates the book with non-existing id",""
+"failed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","88","","Delete Book API Testing","","Admin deletes a book with an invalid ID","","Admin deletes a book with an invalid ID",""
+"failed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","106","","Create Book API Testing","","User creates a book without title","","User creates a book without title",""
+"skipped","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","4","","Create Book API Testing","","User creates a book with an empty author and title","","User creates a book with an empty author and title",""
+"passed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","89","","Delete Book API Testing","","Admin deletes a book with an incorrect ID","","Admin deletes a book with an incorrect ID",""
+"broken","Thu Jan 02 17:27:21 GMT 2025","Thu Jan 02 17:27:33 GMT 2025","12223","","Edit an item on cart","","Edit an item on cart","","Edit an item on cart","  As a user
+  I want to edit an item that already added to cart"
+"passed","Thu Jan 02 17:26:38 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","1732","","Create Book API Testing","","User creates a book with valid data","","User creates a book with valid data",""
+"failed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:41 GMT 2025","105","","Delete Book API Testing","","User tries to delete a book","","User tries to delete a book",""
+"failed","Thu Jan 02 17:26:40 GMT 2025","Thu Jan 02 17:26:40 GMT 2025","94","","Create Book API Testing","","User creates a book without author","","User creates a book without author",""
