@@ -46,7 +46,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y google-chrome-stable
           sudo Xvfb :99 -ac &
-          mvn clean test
+          mvn clean test -Dheadless=false
 
       - name: Merge Allure results
         if: always()

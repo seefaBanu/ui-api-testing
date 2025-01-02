@@ -53,6 +53,9 @@ public class CartSteps extends BaseSteps {
         if (button.equals("Add to Cart")) {
             productPage.addToCart();
         }
+        else if (button.equals("Update Cart")) {
+            productPage.updateCart();
+        }
     }
 
     @Then("the cart should show {string} item")
@@ -74,6 +77,7 @@ public class CartSteps extends BaseSteps {
         iClick("Add to Cart");
     }
 
+
     @When("I go to the cart page")
     public void iGoToTheCartPage() {
         cartPage.goToCartPage();
@@ -89,5 +93,26 @@ public class CartSteps extends BaseSteps {
     public void iClickOKOnTheConfirmationPopup() {
         cartPage.deleteConfirmationPopup();
     }
+
+
+    
+
+    @When("I edit size {string} and color {string}")
+    public void iEditSizeAndColor(String size, String color) {
+        productPage.selectSize(size);
+        productPage.selectColor(color);
+    }
+
+
+    @When("I click edit icon of the added item {string}")
+    public void iClickEditForTheProduct(String productName) {
+        cartPage.editAddedItem(productName);
+    }
+
+    @Then("success message for update should be {string}")
+    public void successMessageForUpdateShouldBe(String message) {
+        assertEquals(message, productPage.getSuccessMessage_Update());
+    }
+
 
 }

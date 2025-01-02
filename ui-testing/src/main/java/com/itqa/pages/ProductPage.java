@@ -12,9 +12,12 @@ public class ProductPage {
 
     // Locators
     private By addToCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
+    private By updateCartButton = By.xpath("//*[@id=\"product-updatecart-button\"]");
     private By successMessage = By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div");
     private By addWishList = By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[5]/div/a[1]");
 
+
+    private By successMessageUpdate = By.xpath("//*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div");
 
     // Method to select size
     public void selectSize(String size) {
@@ -38,9 +41,16 @@ public class ProductPage {
         driver.findElement(addWishList).click();
     }
 
+    public void updateCart() {
+        driver.findElement(updateCartButton).click();
+    }
+
     //Method to get the success message
     public String getSuccessMessage() {
         return driver.findElement(successMessage).getText();
+    }
+    public String getSuccessMessage_Update() {
+        return driver.findElement(successMessageUpdate).getText();
     }
 
     // Helper method to get size ID

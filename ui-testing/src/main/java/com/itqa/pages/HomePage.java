@@ -25,6 +25,7 @@ public class HomePage {
     private By signInLink = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a");
 
     private By AdvancedSearch = By.xpath("/html/body/div[2]/footer/div/ul/li[3]/a");
+    private static By clickToggle = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/span/button");
 
 
     public HomePage(WebDriver driver) {
@@ -57,6 +58,10 @@ public class HomePage {
     public void clickOnLink(String linkText) {
         By linkLocator = By.linkText(linkText);
         driver.findElement(AdvancedSearch).click();
+    }
+    
+    public void clickTheToggle() {
+        driver.findElement(clickToggle).click();
     }
 
 }
