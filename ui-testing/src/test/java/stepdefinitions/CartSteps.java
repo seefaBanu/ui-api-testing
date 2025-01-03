@@ -6,6 +6,9 @@ import com.itqa.pages.ProductPage;
 import com.itqa.pages.MyWishListPage;
 import com.itqa.utils.DriverFactory;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -70,7 +73,6 @@ public class CartSteps extends BaseSteps {
 
     @Given("I have a product in the cart")
     public void iHaveAProductInTheCart() {
-        iAmOnTheHomepage();
         iSearchFor("T-Shirt");
         iSelectTheFirstProduct();
         iSelectSizeAndColor("M","Blue");
@@ -80,6 +82,7 @@ public class CartSteps extends BaseSteps {
 
     @When("I go to the cart page")
     public void iGoToTheCartPage() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         cartPage.goToCartPage();
     }
 

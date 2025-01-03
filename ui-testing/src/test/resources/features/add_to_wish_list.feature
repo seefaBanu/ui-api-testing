@@ -1,4 +1,4 @@
-@Wishlist
+@AddToWishlist
 Feature: Add product to wish list
   As a user
   I want to add products to the wish list

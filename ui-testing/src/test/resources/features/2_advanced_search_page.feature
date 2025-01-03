@@ -1,3 +1,4 @@
+@AdvancedSearch
 Feature: Advanced Search for Products
   As a user
   I want to search for products using advanced filters

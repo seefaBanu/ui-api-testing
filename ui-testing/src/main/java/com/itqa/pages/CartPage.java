@@ -16,7 +16,7 @@ public class CartPage {
     }
 
     private By removeButton = By.xpath("//*[@id=\"mini-cart\"]/li/div/div/div[3]/div[2]/a");
-    private By cartLink = By.xpath("/html/body/div[2]/header/div[2]/div[1]");
+    private By cartLink = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a");
     private By okButton = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]");
     private By cartItemCount = By.cssSelector(".minicart-wrapper .counter-number");
     private By viewAndEditCart = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[5]/div/a");
@@ -25,7 +25,9 @@ public class CartPage {
     private By proceedToCheckoutButton = By.cssSelector("#top-cart-btn-checkout");
 
     public void clickProceedToCheckout() {
-        driver.findElement(proceedToCheckoutButton).click();
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(proceedToCheckoutButton))
+                .click();
     }
 
     public void removeItemFromCart() {
@@ -34,7 +36,11 @@ public class CartPage {
 
     public void goToCartPage() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-        driver.findElement(cartLink).click();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement productElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" /html/body/div[2]/header/div[2]/div[1]/a/span[2]\n")));
+        new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.elementToBeClickable(cartLink))
+                .click();
     }
 
     public void deleteConfirmationPopup(){
@@ -50,6 +56,7 @@ public class CartPage {
     public void goToViewAndEditCartPage(){
         driver.findElement(viewAndEditCart).click();
     }
+
     public void editAddedItem(String productName) {
         // Dynamically locate the product name in the mini cart
         String productNameXpath = String.format("//*[@id='mini-cart']//li/div/div/strong/a[text()='%s']", productName);

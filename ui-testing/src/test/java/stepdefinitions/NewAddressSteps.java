@@ -59,7 +59,7 @@ public class NewAddressSteps{
         addNewAddressPage.clickSaveButton();
     }
 
-    @Then("succeeded message should be {string}")
+    @Then("The success message should be {string}")
     public void iShouldSeeTheSuccessMessage(String expectedMessage) {
         assertEquals(expectedMessage, addressBookPage.getSuccessMessage());
 

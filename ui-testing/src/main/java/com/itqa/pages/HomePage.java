@@ -21,6 +21,8 @@ public class HomePage {
     private By firstProduct = By.cssSelector(".products-grid .product-item:first-of-type");
     private By SecondProduct = By.xpath("//*[@id=\"maincontent\"]/div[3]/div[1]/div[2]/div[2]/ol/li[1]/div/a");
     private By cartItemCounter = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]");
+    private By comparePageLink = By.xpath("/html/body/div[2]/header/div[2]/ul/li/a");
+
 
     private By signInLink = By.xpath("/html/body/div[2]/header/div[1]/div/ul/li[2]/a");
 
@@ -51,6 +53,9 @@ public class HomePage {
         return driver.findElement(cartItemCounter).getText();
     }
 
+    public void goToComparePage() {
+        driver.findElement(comparePageLink).click();
+    }
     public void clickSignIn() {
         driver.findElement(signInLink).click();
     }
