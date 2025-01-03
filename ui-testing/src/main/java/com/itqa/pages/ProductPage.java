@@ -14,6 +14,10 @@ public class ProductPage {
     private By addToCartButton = By.xpath("//*[@id=\"product-addtocart-button\"]");
     private By successMessage = By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div");
 
+    private By compareListSuccessMessage = By.xpath("    //*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div\n");
+
+
+
     // Method to select size
     public void selectSize(String size) {
         String sizeXpath = String.format("//*[@id='option-label-size-143-item-%s']", getSizeId(size));
@@ -56,5 +60,9 @@ public class ProductPage {
             case "purple": return "57";
             default: return "";
         }
+    }
+
+    public String getCompareListSuccessMessage() {
+        return driver.findElement(compareListSuccessMessage).getText();
     }
 }

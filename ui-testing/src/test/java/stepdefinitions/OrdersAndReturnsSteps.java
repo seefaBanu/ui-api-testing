@@ -1,27 +1,22 @@
-import io.cucumber.java.en.*;
+package stepdefinitions;
+
+import com.itqa.pages.OrdersAndReturnsPage;
+import com.itqa.utils.DriverFactory;
+import io.cucumber.java.After;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
-import java.time.Duration;
 
 
 public class OrdersAndReturnsSteps {
 
-    private WebDriver driver;
-
-
-
-    public OrdersAndReturnsSteps() {
-        System.setProperty("webdriver.chrome.driver", "https://magento.softwaretestingboard.com/");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-
+    private WebDriver driver = DriverFactory.getDriver();
+    private OrdersAndReturnsPage ordersAndReturnsPage = new OrdersAndReturnsPage(DriverFactory.getDriver());
 
 
     @Given("I am on the Home page")
@@ -43,29 +38,12 @@ public class OrdersAndReturnsSteps {
     @Given("I am on the Orders and Returns page")
     public void iAmOnTheOrdersAndReturnsPage() {
         driver.get("https://magento.softwaretestingboard.com/sales/guest/form/");
-        Assert.assertEquals(driver.getTitle(),"Orders and Returns");
+        Assert.assertEquals(driver.getTitle(), "Orders and Returns");
     }
 
     @When("I enter {string} into the {string} field")
     public void iEnterIntoTheField(String text, String fieldLabel) {
-        switch (fieldLabel){
-            case "Order ID" :
-                driver.findElement(By.id("order-id")).sendKeys(text);
-                break;
-            case "Billing Last Name" :
-                driver.findElement(By.id("billing-lastname")).sendKeys(text);
-                break;
-            case "Email" :
-                driver.findElement(By.id("guest-email")).sendKeys(text);
-        }
-
-    }
-
-    @When("I select {string} as the search method")
-    public void iSelectAsTheSearchMethod(String searchMethod) {
-        WebElement selectElement = driver.findElement(By.id("order-search"));
-        Select select = new Select(selectElement);
-        select.selectByVisibleText(searchMethod);
+        ordersAndReturnsPage.enterField(fieldLabel, text);
     }
 
     @When("I click the {string} button")
@@ -76,34 +54,15 @@ public class OrdersAndReturnsSteps {
     @Then("I should see the order details page")
     public void iShouldSeeTheOrderDetailsPage() {
         Assert.assertTrue(driver.getCurrentUrl().contains("sales/guest/view/"));
-
     }
 
-
-    @Then("I should see an error message indicating that {string} is a required field")
-    public void iShouldSeeAnErrorMessageIndicatingThatIsARequiredField(String field) {
-        WebElement errorMessage = driver.findElement(By.id("order-id-error"));
-        Assert.assertTrue(errorMessage.isDisplayed());
-        String message = errorMessage.getText();
-        Assert.assertEquals(message, "This is a required field.");
-
-    }
-
-
-    @Then("I should see a message indicating that no order was found with the provided information")
-    public void iShouldSeeAMessageIndicatingThatNoOrderWasFoundWithTheProvidedInformation() {
-        WebElement errorMessage = driver.findElement(By.cssSelector(".message-error.error.message"));
-        Assert.assertTrue(errorMessage.isDisplayed());
-        String message = errorMessage.getText();
-        Assert.assertEquals(message,"We can't find an order with the specified information.");
-
+    @Then("Order details should be shown for order id {string}")
+    public void getOrderId(String orderId) {
+        Assert.assertEquals(ordersAndReturnsPage.getOrderIdOnPage(),orderId);
     }
 
     @After()
     public void tearDown(){
-        if(driver !=null) {
-            driver.quit();
-        }
-
+        DriverFactory.closeDriver(); // close driver at the end of each scenario.
     }
 }
