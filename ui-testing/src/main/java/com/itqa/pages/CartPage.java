@@ -11,6 +11,10 @@ import java.time.Duration;
 public class CartPage {
     WebDriver driver;
 
+    public CartPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
     private By removeButton = By.xpath("//*[@id=\"mini-cart\"]/li/div/div/div[3]/div[2]/a");
     private By cartLink = By.xpath("/html/body/div[2]/header/div[2]/div[1]");
     private By okButton = By.xpath("/html/body/div[4]/aside[2]/div[2]/footer/button[2]");
@@ -22,11 +26,7 @@ public class CartPage {
 
     public void clickProceedToCheckout() {
         driver.findElement(proceedToCheckoutButton).click();
-
-    public CartPage(WebDriver driver) {
-        this.driver = driver;
     }
-
 
     public void removeItemFromCart() {
         driver.findElement(removeButton).click();
