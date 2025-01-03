@@ -57,6 +57,7 @@ public class Hooks {
 
             addressBookPage.removeAllAddresses();
             System.out.println("All addresses removed.");
+            DriverFactory.quitDriver();
         } catch (Exception e) {
             System.err.println("Error removing addresses: " + e.getMessage());
         }

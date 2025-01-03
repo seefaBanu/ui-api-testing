@@ -97,9 +97,6 @@ public class CartSteps extends BaseSteps {
         cartPage.deleteConfirmationPopup();
     }
 
-
-    
-
     @When("I edit size {string} and color {string}")
     public void iEditSizeAndColor(String size, String color) {
         productPage.selectSize(size);

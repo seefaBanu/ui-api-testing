@@ -25,7 +25,7 @@ Feature: Delete Book API Testing
   # Scenario: Unauthorized user tries to delete a book
   Scenario: User tries to delete a book
     Given user is authenticated
-    When user sends a DELETE request to "/api/books/{id}" with ID 1
+    When user sends a DELETE request to "/api/books/{id}" with ID 2
     Then the response status code for unauthorized access should be 403
     And the response should indicate book deletion with message "User is not permitted"
 
