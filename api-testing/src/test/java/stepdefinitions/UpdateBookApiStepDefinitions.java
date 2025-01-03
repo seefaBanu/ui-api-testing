@@ -2,33 +2,33 @@ package stepdefinitions;
 
 import base.TestBase;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 
 
+import java.util.HashMap;
 import java.util.Map;
 public class UpdateBookApiStepDefinitions extends TestBase {
     private Response response;
 
-
     @When("{string} sends a PUT request to {string} with the following valid data:")
     public void admin_sends_put_request_with_valid_data(String user, String endpoint, Map<String, String> data) {
-        // Replace the placeholder {id} with the actual book id
+        Map<String, String> mutableData = new HashMap<>(data);
+        mutableData.replaceAll((key, value) -> "empty string".equalsIgnoreCase(value) ? "" : value);
+
         if (user.equals("user")) {
             response = TestBase.userRequest
-                    .body(data)
+                    .body(mutableData)
                     .put(endpoint);
         } else if (user.equals("admin")) {
             response = TestBase.adminRequest
-                    .body(data)
+                    .body(mutableData)
                     .put(endpoint);
-
+        } else {
+            throw new IllegalArgumentException("Invalid user type: " + user);
         }
-
     }
 
     @Then("the response status code for Updating Book API should be {int}")
