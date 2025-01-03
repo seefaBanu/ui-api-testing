@@ -1,5 +1,6 @@
 package com.itqa.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ComparePage {
     private WebDriver driver;
@@ -26,10 +28,15 @@ public class ComparePage {
         PageFactory.initElements(driver, this);
     }
 
-    public Boolean isComparePageVisible() {
-        wait.until(ExpectedConditions.visibilityOf(comparePageContent));
-        return comparePageContent.isDisplayed();
+    public Boolean isComparePageHavingProducts() {
+        List<WebElement> productElements = driver.findElements(By.cssSelector(".data.table.table-comparison tbody tr"));
+        if (productElements.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
     }
+
 
 
 }

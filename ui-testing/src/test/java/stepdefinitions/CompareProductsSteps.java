@@ -28,19 +28,13 @@ public class CompareProductsSteps {
         homePage.searchProduct(productName);
     }
 
-    @When("I select the {string} product for comparison")
+    @When("I select the {string} product for comparison and Add to Compare")
     public void iSelectTheFirstProduct(String index) {
         if (index.equals("first"))
              searchResultPage.selectProduct(0);
         else if (index.equals("second")) {
             searchResultPage.selectProduct(1);
         }
-    }
-
-
-    @When("I click the \"Add to Compare\" link")
-    public void iClickTheAddToCompareLink() {
-        productPage.clickAddToCompare();
     }
 
     @Then("I should see a success message indicating that product was added to compare list")
@@ -52,11 +46,6 @@ public class CompareProductsSteps {
     public void theProductShouldBeAddedToTheCompareProductsListAndCount(int count) {
         Assert.assertEquals(searchResultPage.getCompareCount(), count);
     }
-    @When("I select the second product for comparison")
-    public void iSelectTheSecondProduct() {
-        driver.navigate().back(); // Go back to the search results
-        searchResultPage.selectProduct(1);
-    }
 
     @When("I click the compare button")
     public void iClickTheCompareButton() {
@@ -65,13 +54,8 @@ public class CompareProductsSteps {
 
 
     @Then("I should see  the comparison list")
-    public void iShouldSeeTheComparisonList() {
-        Assert.assertTrue((Boolean) comparePage.isComparePageVisible());
+    public void isComparePageHavingProducts() {
+        Assert.assertTrue((Boolean) comparePage.isComparePageHavingProducts());
     }
 
-
-    @After()
-    public void tearDown() {
-        DriverFactory.closeDriver();
-    }
 }

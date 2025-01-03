@@ -61,8 +61,4 @@ public class OrdersAndReturnsSteps {
         Assert.assertEquals(ordersAndReturnsPage.getOrderIdOnPage(),orderId);
     }
 
-    @After()
-    public void tearDown(){
-        DriverFactory.closeDriver(); // close driver at the end of each scenario.
-    }
 }

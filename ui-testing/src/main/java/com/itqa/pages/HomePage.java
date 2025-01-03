@@ -10,6 +10,8 @@ public class HomePage {
     private By searchButton = By.xpath("//button[@type='submit']");
     private By firstProduct = By.cssSelector(".products-grid .product-item:first-of-type");
     private By cartItemCounter = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]");
+    private By comparePageLink = By.xpath("/html/body/div[2]/header/div[2]/ul/li/a");
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -28,4 +30,7 @@ public class HomePage {
         return driver.findElement(cartItemCounter).getText();
     }
 
+    public void goToComparePage() {
+        driver.findElement(comparePageLink).click();
+    }
 }
