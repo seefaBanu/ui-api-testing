@@ -15,7 +15,7 @@ public class ProductPage {
     private By updateCartButton = By.xpath("//*[@id=\"product-updatecart-button\"]");
     private By successMessage = By.xpath("//*[@id=\"maincontent\"]/div[1]/div[2]/div/div/div");
     private By addWishList = By.xpath("//*[@id=\"maincontent\"]/div[2]/div/div[1]/div[5]/div/a[1]");
-
+    private By reviewBox = By.xpath("//*[@id=\"tab-label-reviews-title\"]\n");
 
     private By successMessageUpdate = By.xpath("//*[@id=\"maincontent\"]/div[2]/div[2]/div/div/div");
 
@@ -81,5 +81,9 @@ public class ProductPage {
 
     public String getCompareListSuccessMessage() {
         return driver.findElement(compareListSuccessMessage).getText();
+    }
+
+    public void clickAddReviewButton() {
+        driver.findElement(reviewBox).click();
     }
 }
