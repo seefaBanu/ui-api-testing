@@ -10,6 +10,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.testng.Assert;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CreateBookApiStepDefinitions extends TestBase {
@@ -17,10 +18,12 @@ public class CreateBookApiStepDefinitions extends TestBase {
 
     @When("{string} sends a POST request to {string} with following data:")
     public void user_sends_post_request_with_valid_data(String user, String endpoint, Map<String, String> data) {
+        Map<String, String> mutableData = new HashMap<>(data);
+        mutableData.replaceAll((key, value) -> "empty string".equalsIgnoreCase(value) ? "" : value);
         if (user.equals("user"))
-            response = userRequest.body(data).post(endpoint);
+            response = userRequest.body(mutableData).post(endpoint);
         else if (user.equals("admin")){
-            response = adminRequest.body(data).post(endpoint);
+            response = adminRequest.body(mutableData).post(endpoint);
         }
     }
 
