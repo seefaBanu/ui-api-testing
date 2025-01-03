@@ -1,0 +1,89 @@
+name: API and UI Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 19
+        uses: actions/setup-java@v3
+        with:
+          java-version: "19"
+          distribution: "temurin"
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-m2
+
+      - name: Start API server
+        run: |
+          nohup java -jar api/demo-0.0.1-SNAPSHOT.jar &
+          
+      - name: Build and run API tests
+        working-directory: api-testing
+        run: mvn test
+        continue-on-error: true
+
+      - name: Build and run UI tests
+        working-directory: ui-testing
+        env:
+          DISPLAY: :99
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+          sudo Xvfb :99 -ac &
+          mvn clean test -Dheadless=false
+
+      - name: Merge Allure results
+        if: always()
+        run: |
+          mkdir -p allure-results
+          cp -r api-testing/allure-results/* allure-results/ || true
+          cp -r ui-testing/allure-results/* allure-results/ || true
+
+      - name: Set environment properties
+        if: always()
+        run: |
+          echo "EVENT=${{ github.event_name }}" >> allure-results/environment.properties
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            echo "PULL_REQUEST=https://github.com/${{ github.repository }}/pull/${{ github.event.pull_request.number }}" >> allure-results/environment.properties
+          fi
+          echo "ATTEMPT=${{ github.run_attempt }}" >> allure-results/environment.properties
+          echo "COMMIT=https://github.com/${{ github.repository }}/commits/${{ github.sha }}" >> allure-results/environment.properties
+
+      - name: Load test report history
+        uses: actions/checkout@v3
+        if: always()
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Build Allure test report
+        uses: simple-elf/allure-report-action@v1.7
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_history: gh-pages/allure-history
+          allure_results: allure-results
+
+      - name: Publish Allure test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: gh-pages/allure-history

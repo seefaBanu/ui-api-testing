@@ -3,15 +3,26 @@ package stepdefinitions;
 import com.itqa.pages.CartPage;
 import com.itqa.pages.HomePage;
 import com.itqa.pages.ProductPage;
+import com.itqa.pages.MyWishListPage;
 import com.itqa.utils.DriverFactory;
 import io.cucumber.java.en.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class CartSteps {
-    HomePage homePage = new HomePage(DriverFactory.getDriver());
-    ProductPage productPage = new ProductPage(DriverFactory.getDriver());
-    CartPage cartPage = new CartPage(DriverFactory.getDriver());
+public class CartSteps extends BaseSteps {
+    HomePage homePage;
+    ProductPage productPage;
+    CartPage cartPage;
+
+    public CartSteps() {
+        super();
+        homePage = new HomePage(driver);
+        productPage = new ProductPage(driver);
+        cartPage = new CartPage(driver);
+    }
 
     @Given("I am on the homepage")
     public void iAmOnTheHomepage() {
@@ -28,6 +39,12 @@ public class CartSteps {
         homePage.selectFirstProduct();
     }
 
+    @When("I select the Second product")
+    public void iSelectTheSecondProduct() {
+        homePage.selectSecondProduct();
+    }
+
+
     @When("I select size {string} and color {string}")
     public void iSelectSizeAndColor(String size, String color) {
         productPage.selectSize(size);
@@ -38,6 +55,9 @@ public class CartSteps {
     public void iClick(String button) {
         if (button.equals("Add to Cart")) {
             productPage.addToCart();
+        }
+        else if (button.equals("Update Cart")) {
+            productPage.updateCart();
         }
     }
 
@@ -53,15 +73,16 @@ public class CartSteps {
 
     @Given("I have a product in the cart")
     public void iHaveAProductInTheCart() {
-        iAmOnTheHomepage();
         iSearchFor("T-Shirt");
         iSelectTheFirstProduct();
         iSelectSizeAndColor("M","Blue");
         iClick("Add to Cart");
     }
 
+
     @When("I go to the cart page")
     public void iGoToTheCartPage() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         cartPage.goToCartPage();
     }
 
@@ -75,5 +96,26 @@ public class CartSteps {
     public void iClickOKOnTheConfirmationPopup() {
         cartPage.deleteConfirmationPopup();
     }
+
+
+    
+
+    @When("I edit size {string} and color {string}")
+    public void iEditSizeAndColor(String size, String color) {
+        productPage.selectSize(size);
+        productPage.selectColor(color);
+    }
+
+
+    @When("I click edit icon of the added item {string}")
+    public void iClickEditForTheProduct(String productName) {
+        cartPage.editAddedItem(productName);
+    }
+
+    @Then("success message for update should be {string}")
+    public void successMessageForUpdateShouldBe(String message) {
+        assertEquals(message, productPage.getSuccessMessage_Update());
+    }
+
 
 }
