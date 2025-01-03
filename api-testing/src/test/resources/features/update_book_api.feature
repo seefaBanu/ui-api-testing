@@ -33,3 +33,13 @@ Feature: Update Book API Testing
       |  author | kalid hosainee   |
     Then the response status code for Updating Book API should be 403
     And the response body for Update Book API should be "User is not permitted"
+
+  @204078E
+  Scenario: User tries to updates the Book with mismatch IDs
+    Given user is authenticated
+    When "user" sends a PUT request to "/api/books/1" with the following valid data:
+      | id  | 2 |
+      | title   | Other half  |
+      |  author | Neya P   |
+    Then the response status code for Updating Book API should be 400
+    And the response body for Update Book API should be "Book id is not matched"
