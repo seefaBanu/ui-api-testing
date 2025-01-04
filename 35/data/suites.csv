@@ -1,0 +1,55 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sat Jan 04 03:07:48 GMT 2025","Sat Jan 04 03:07:49 GMT 2025","1816","","Create Book API Testing","","User creates a book with valid data","","User creates a book with valid data",""
+"passed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","93","","Get Book By ID API Testing","","Admin attempts to retrieve a non-existent book","","Admin attempts to retrieve a non-existent book",""
+"passed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","97","","Create Book API Testing","","User creates a book with a duplicate title","","User creates a book with a duplicate title",""
+"passed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","421","","Get Book By ID API Testing","","Admin retrieves a specific book","","Admin retrieves a specific book",""
+"passed","Sat Jan 04 03:11:41 GMT 2025","Sat Jan 04 03:11:50 GMT 2025","8760","","Add a new address","","User adds a new address","","User adds a new address","  As a user
+  I want to add a new address
+  So that I can use them later"
+"passed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","100","","Create Book API Testing","","Admin creates a book with valid data","","Admin creates a book with valid data",""
+"failed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","95","","Get Book Requests","","GET books with invalid query parameters","","GET books with invalid query parameters",""
+"passed","Sat Jan 04 03:09:50 GMT 2025","Sat Jan 04 03:11:41 GMT 2025","110797","","Proceed to Checkout and Place Order","","User proceeds to checkout","","User proceeds to checkout","  As a  user
+  I want to add products to the cart
+  and proceed to checkout
+  So that I can place an order without an account, but I must create an account to complete the purchase."
+"failed","Sat Jan 04 03:07:49 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","107","","Create Book API Testing","","User creates a book without title","","User creates a book without title",""
+"failed","Sat Jan 04 03:07:52 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","91","","Update Book API Testing","","Admin updates the book with missing mandatory fields","","Admin updates the book with missing mandatory fields",""
+"broken","Sat Jan 04 03:08:51 GMT 2025","Sat Jan 04 03:09:50 GMT 2025","59029","","Edit an item on cart","","Edit an item on cart","","Edit an item on cart","  As a user
+  I want to edit an item that already added to cart"
+"passed","Sat Jan 04 03:08:05 GMT 2025","Sat Jan 04 03:08:12 GMT 2025","7601","","register new user","","Create a new account to register","","Create a new account to register","  As a user
+  I want to register
+  So that I can login"
+"passed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","32","","Create Book API Testing","","Un Authenticated Request to create book","","Un Authenticated Request to create book",""
+"broken","Sat Jan 04 03:08:16 GMT 2025","Sat Jan 04 03:08:24 GMT 2025","8025","","Product Comparison Functionality","","Add a product to the comparison list from the product detail page","","Add a product to the comparison list from the product detail page","  As a user
+  I want to be able to add products to a comparison list
+  So that I can compare the features of different products"
+"failed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","91","","Get Book By ID API Testing","","User retrieves a specific book","","User retrieves a specific book",""
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","94","","Create Book API Testing","","User creates a book without author","","User creates a book without author",""
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","93","","Create Book API Testing","","User creates a book with additional parameter","","User creates a book with additional parameter",""
+"passed","Sat Jan 04 03:07:52 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","88","","Update Book API Testing","","User tries to updates the Book with mismatch IDs","","User tries to updates the Book with mismatch IDs",""
+"passed","Sat Jan 04 03:08:24 GMT 2025","Sat Jan 04 03:08:34 GMT 2025","10001","","Add review to a product","","Add review to a product","","Add review to a product","  As a user
+  I want to add review to the products"
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","91","","Create Book API Testing","","User creates a book with an empty author and title","","User creates a book with an empty author and title",""
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","100","","Delete Book API Testing","","User tries to delete a book","","User tries to delete a book",""
+"passed","Sat Jan 04 03:08:43 GMT 2025","Sat Jan 04 03:08:51 GMT 2025","8529","","Add product to wish list","","Add a product to the wish list","","Add a product to the wish list","  As a user
+  I want to add products to the wish list
+  So that I can purchase them later"
+"passed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","89","","Get Book Requests","","User GET all books","","User GET all books",""
+"passed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","86","","Get Book By ID API Testing","","Invalid ID Test","","Invalid ID Test",""
+"broken","Sat Jan 04 03:11:53 GMT 2025","Sat Jan 04 03:15:41 GMT 2025","228091","","remove product from cart","","Remove a product from the cart","","Remove a product from the cart","  As a user
+  I want to remove products from the cart
+  So that I can update my selection"
+"passed","Sat Jan 04 03:08:34 GMT 2025","Sat Jan 04 03:08:43 GMT 2025","8371","","Add product to cart","","Add a single product to the cart","","Add a single product to the cart","  As a user
+  I want to add products to the cart 
+  So that I can purchase them later"
+"passed","Sat Jan 04 03:07:52 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","100","","Update Book API Testing","","Admin updates the Book with valid data","","Admin updates the Book with valid data",""
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","90","","Delete Book API Testing","","Admin deletes a book with an invalid ID","","Admin deletes a book with an invalid ID",""
+"failed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","98","","Delete Book API Testing","","Admin deletes a book with a valid ID","","Admin deletes a book with a valid ID",""
+"passed","Sat Jan 04 03:11:50 GMT 2025","Sat Jan 04 03:11:53 GMT 2025","3520","","Orders and Returns Functionality","","Access Orders and Returns page from Home page","","Access Orders and Returns page from Home page",""
+"passed","Sat Jan 04 03:07:52 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","87","","Update Book API Testing","","User updates the Book with valid data","","User updates the Book with valid data",""
+"passed","Sat Jan 04 03:07:52 GMT 2025","Sat Jan 04 03:07:52 GMT 2025","90","","Update Book API Testing","","Admin updates the book with non-existing ID","","Admin updates the book with non-existing ID",""
+"passed","Sat Jan 04 03:07:51 GMT 2025","Sat Jan 04 03:07:51 GMT 2025","92","","Get Book Requests","","Admin GET all books","","Admin GET all books",""
+"passed","Sat Jan 04 03:07:50 GMT 2025","Sat Jan 04 03:07:50 GMT 2025","95","","Delete Book API Testing","","Admin deletes a book with an incorrect ID","","Admin deletes a book with an incorrect ID",""
+"passed","Sat Jan 04 03:08:12 GMT 2025","Sat Jan 04 03:08:16 GMT 2025","3797","","Advanced Search for Products","","Search for a product using advanced search filters","","Search for a product using advanced search filters","  As a user
+  I want to search for products using advanced filters
+  So that I can find specific products efficiently"
